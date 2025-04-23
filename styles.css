@@ -7,10 +7,10 @@
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Offset by 50% of its width and height */
-  background-color: #ff0000; /* Square color */
-  width: 70vw; /* Dynamically scale width to 70% of the viewport width */
+  background-color: #D6F0CE; /* Square color */
+  width: 60vw; /* Reduced width to 60% of the viewport width */
   height: calc(70vw * 2); /* Maintain the 1:2 aspect ratio */
-  max-width: 300px; /* Ensure it doesn't exceed the original size */
+  max-width: 290px; /* Ensure it doesn't exceed the original size */
   max-height: 600px; /* Ensure it doesn't exceed the original size */
   border-radius: 50px; /* Optional: Rounded corners */
 }
