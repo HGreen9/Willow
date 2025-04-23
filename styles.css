@@ -1,25 +1,28 @@
-body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000000; 
+/* Assuming "screen color" is a class */
+.screen-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Use absolute positioning for centering */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset by 50% of its width and height */
+  background-color: #ff0000; /* Square color */
+  width: 70vw; /* Dynamically scale width to 70% of the viewport width */
+  height: calc(70vw * 2); /* Maintain the 1:2 aspect ratio */
+  max-width: 300px; /* Ensure it doesn't exceed the original size */
+  max-height: 600px; /* Ensure it doesn't exceed the original size */
+  border-radius: 50px; /* Optional: Rounded corners */
 }
 
-.image-container img {
-    max-width: 95vw; 
-    max-height: 95vh; 
-    height: auto; 
-    width: auto; 
-}
-
-@media (max-width: 600px) {
-    body {
-        background-color: #000000; 
-    }
-    .image-container img {
-        max-width: 100vw; 
-        max-height: 100vh; 
-    }
+.image-container {
+  position: absolute; /* Ensure it overlaps the square */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset by 50% of its width and height */
+  z-index: 1; /* Ensure it appears above the square */
+  width: 70vw; /* Dynamically scale width to 70% of the viewport width */
+  height: calc(70vw * 2); /* Maintain the 1:2 aspect ratio */
+  max-width: 300px; /* Ensure it doesn't exceed the original size */
+  max-height: 600px; /* Ensure it doesn't exceed the original size */
 }
