@@ -20,7 +20,7 @@
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Offset by 50% of its width and height */
-  z-index: 2; /* Ensure it appears above the square */
+  z-index: 10; /* Ensure it appears above the square */
   width: 70vw; /* Dynamically scale width to 70% of the viewport width */
   height: calc(70vw * 2); /* Maintain the 1:2 aspect ratio */
   max-width: 300px; /* Ensure it doesn't exceed the original size */
@@ -39,39 +39,71 @@
 /* Define a reverse animation for the smaller cloud */
 @keyframes moveCloudReverse {
   0% {
-    transform: translateX(100%);
+    transform: translateX(100%); /* Start off-screen to the right */
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* Move off-screen to the left */
   }
 }
 
 .cloud {
   position: absolute;
-  top: 50%; /* Adjust the vertical position as needed */
+  top: 55%; /* Adjust the vertical position as needed */
   left: 40%;
   /* width: 100px; Adjust the size of the cloud
   height: 50px; Adjust the size of the cloud */
   background-color: transparent; /* Example cloud color */
-  animation: moveCloud 20s linear infinite; /* Move across the screen in 20 seconds */
+  animation: moveCloud 10s linear 2; /* Move across the screen in 20 seconds */
   z-index: 1; /* Ensure it appears above the .screen-color */
 }
 
 /* Smaller cloud styling */
 .cloud-small {
   position: absolute;
-  top: 5%; /* Adjust the vertical position as needed */
-  left: 50%; /* Starting position */
-  scale: 0.8; /* Scale down the cloud */
+  top: 2%; /* Adjust the vertical position as needed */
+  right: 5%; /* Starting position */
+  scale: 0.7; /* Scale down the cloud */
   background-color: transparent; /* Example cloud color */
-  animation: moveCloudReverse 15s linear infinite; /* Move across the screen in 15 seconds */
+  animation: moveCloudReverse 8s linear 2; /* Move across the screen in 15 seconds */
   z-index: 1; /* Ensure it appears above the .screen-color */
 }
 
 .title {
   position: absolute;
-  top: 50%; /* Adjust the vertical position as needed */
+  top: 45%; /* Adjust the vertical position as needed */
   left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%) scale(1.0); /* Offset by 50% and scale down */
-  z-index: 1; /* Ensure it appears above the square and clouds */
+  scale: 1.0;
+  transform: translate(-50%, -50%); /* Offset by 50% and scale down */
+  z-index: 2; /* Ensure it appears above the square and clouds */
+}
+
+.loading-bar {
+  position: absolute;
+  bottom: 40%; /* Position it below the title */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Full width of the loading bar */
+  height: 10px; /* Height of the loading bar */
+  background-color: rgba(0, 0, 0, 0.2); /* Background for the bar */
+  overflow: hidden;
+  border-radius: 5px; /* Rounded corners */
+  z-index: 2;
+}
+
+.loading-bar::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 0%; /* Start with 0% width */
+  background-color: black; /* Color of the loading bar */
+  animation: load 22s linear 1; /* Run for 1 cycle */
+}
+
+@keyframes load {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
