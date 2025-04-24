@@ -36,14 +36,42 @@
   }
 }
 
+/* Define a reverse animation for the smaller cloud */
+@keyframes moveCloudReverse {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .cloud {
   position: absolute;
-  top: 35%; /* Adjust the vertical position as needed */
+  top: 50%; /* Adjust the vertical position as needed */
   left: 40%;
   /* width: 100px; Adjust the size of the cloud
   height: 50px; Adjust the size of the cloud */
   background-color: transparent; /* Example cloud color */
-  border-radius: 50%; /* Make it look like a cloud */
   animation: moveCloud 20s linear infinite; /* Move across the screen in 20 seconds */
   z-index: 1; /* Ensure it appears above the .screen-color */
+}
+
+/* Smaller cloud styling */
+.cloud-small {
+  position: absolute;
+  top: 5%; /* Adjust the vertical position as needed */
+  left: 50%; /* Starting position */
+  scale: 0.8; /* Scale down the cloud */
+  background-color: transparent; /* Example cloud color */
+  animation: moveCloudReverse 15s linear infinite; /* Move across the screen in 15 seconds */
+  z-index: 1; /* Ensure it appears above the .screen-color */
+}
+
+.title {
+  position: absolute;
+  top: 50%; /* Adjust the vertical position as needed */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%) scale(1.0); /* Offset by 50% and scale down */
+  z-index: 1; /* Ensure it appears above the square and clouds */
 }
